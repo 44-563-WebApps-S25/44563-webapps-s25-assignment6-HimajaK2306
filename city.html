@@ -5,35 +5,50 @@
 <h1>City game by Himaja</h1>
 <h2>Getting input</h2>
 
-<form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+<label for="secretCity">Where in the world:</label>
+  <input type="password" id="secretCity" value="San Diego">
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+  <br><br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
-</form>
+ 
+  <label for="guessCity">Guess the city:</label>
+  <input type="text" id="guessCity">
 
+  <br><br>
 
-<p id="result">This text will be replaced </p>
+  
+  <input type="button" value="Check the guess" onclick="checkCity()">
 
-<script> 
+  <br><br>
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
+ 
+  <div id="result"></div>
+
+  
+  <script>
+   
+    let oops = 0;
+    let found = 0;
+
     
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+    function checkCity() {
+      
+      const secretCity = document.getElementById('secretCity').value;
+      const guessCity = document.getElementById('guessCity').value;
+
+      
+      if (guessCity === secretCity) {
+        found += 1;
+        alert("GotCha!");
+      } else {
+        oops += 1;
+        alert("Awe");
+      }
+
+      
+      document.getElementById('result').innerHTML = `Oops: ${oops}, Found: ${found}`;
     }
-}
-</script>
+  </script>
 
 </body>
-</html> 
+</html>
