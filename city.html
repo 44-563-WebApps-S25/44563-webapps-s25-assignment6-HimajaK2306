@@ -7,36 +7,19 @@
 
 <label for="secretCity">Where in the world:</label>
   <input type="password" id="secretCity" value="San Diego">
-
   <br><br>
-
- 
-  <label for="guessCity">Guess the city:</label>
+<label for="guessCity">Guess the city:</label>
   <input type="text" id="guessCity">
-
   <br><br>
-
-  
   <input type="button" value="Check the guess" onclick="checkCity()">
-
   <br><br>
-
- 
   <div id="result"></div>
-
-  
   <script>
-   
     let oops = 0;
     let found = 0;
-
-    
     function checkCity() {
-      
       const secretCity = document.getElementById('secretCity').value;
       const guessCity = document.getElementById('guessCity').value;
-
-      
       if (guessCity === secretCity) {
         found += 1;
         alert("GotCha!");
@@ -48,7 +31,15 @@
       
       document.getElementById('result').innerHTML = `Oops: ${oops}, Found: ${found}`;
     }
-  </script>
+    <div id="imageContainer">
+  <img src="EclectusParrot.jpg" id="petImage" width="150" height="150" onclick="updatePic()">
+</div>
 
+<script src="imageScript.js"></script>
+
+    
+
+
+</script>
 </body>
 </html>
