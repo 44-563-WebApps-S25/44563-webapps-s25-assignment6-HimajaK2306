@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+
+<h2>Himaja Dinner date plans</h2>
+
+<form class="form-floating">
+    <label for="form1_age">Serve wine</label> 
+    <input type ="checkbox" id="wine" value="True"> <br>
+
+    <label for="form1_nick"> Eat Outside</label>
+    <input type ="checkbox" id="outside" value="True"> <br>
+
+    <label for="form1_nick"> Light candles</label>
+    <input type ="checkbox" id="candles" value="False"> <br>
+
+    <input type="button" onclick="choices()" value="Dinner choices">
+</form>
+
+
+<p class="fst-italic text-center" id="output">Dinner choices will be here</p>
+
+<form>
+    <label for="maindish">Enter the dish</label> 
+    <input type ="text" id="maindish" value="Butter Chicken"> <br>
+
+    <label for="dessert"> Enter dessert</label>
+    <input type ="text" id="dessert"> <br>
+
+    <input type="button" onclick="updateDinner()" value="update the dinner">
+</form>
+
+<script> 
+
+let my_dinner = {};
+
+function choices(){
+    my_dinner ={};
+    my_dinner.wine = document.getElementById("wine").checked;
+    my_dinner.outside = document.getElementById("outside").checked;
+    my_dinner.candles = document.getElementById("candles").checked;
+    
+    document.getElementById("output").innerHTML = JSON.stringify(my_dinner);
+
+}
+function updateDinner(){
+    my_dinner["main"]= document.getElementById("maindish").value;
+    my_dinner["dessert"]= document.getElementById("dessert").value;
+
+    document.getElementById("output").innerHTML = JSON.stringify(my_dinner);
+}
+</script>
+
+</body>
+</html> 
